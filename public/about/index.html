@@ -7,7 +7,7 @@
       id="viewport"
       content="width=device-width, initial-scale=1.0" />
     <title>
-      关于我 | Seven 主题
+      About me | Seven 主题
     </title><meta
   name="application-name"
   content="Seven Theme" />
@@ -16,11 +16,11 @@
   content="Seven Theme" />
 
 
-  <meta name="title" content="关于我" />
+  <meta name="title" content="About me" />
 
 
 
-  <meta name="description" content="一款简洁、漂亮的 HUGO 博客主题" />
+  <meta name="description" content="All about Studentalz and Alex &#34;aLexe1n&#34; Liu." />
 <meta name="theme-color" content="#ffffff" /><link rel="icon" href="/favicon.svg" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
 
 
@@ -241,15 +241,15 @@
     <img
       x-cloak
       x-show="!$store.darkMode.on"
-      src="/images/logo.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz.svg"
+      class="h-[22px]"
       alt="Logo" />
     
     <img
       x-cloak
       x-show="$store.darkMode.on"
-      src="/images/logo-footer.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz-dark.svg"
+      class="h-[22px]"
       alt="Logo" />
   </div></a>
 </div>
@@ -340,14 +340,6 @@
     </div>
   
 
-  
-    <a
-      href="/about/"
-      class="hs-menus text-sm font-semibold leading-6 text-gray-900 hover:text-[--hs-text-color-hover] dark:text-white"
-      >关于我</a
-    >
-  
-
 
 
   <div x-data="{ isOpen: false }" class="hs-menus relative">
@@ -383,6 +375,16 @@
       @scroll.window.away="isOpen = false"
       class="absolute -left-6 top-full z-10 mt-3 w-screen max-w-40 overflow-hidden rounded-xl bg-white/95 shadow-lg ring-1 ring-gray-900/5 backdrop-blur-xl dark:bg-gray-800/95">
       <div class="p-2">
+        
+          <div
+            class="relative rounded-lg px-4 py-2.5 text-sm leading-6 hover:bg-gray-300/30 hover:backdrop-blur-md">
+            <a
+              href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+              class="block font-semibold text-gray-900 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
+              文档
+              <span class="absolute inset-0"></span>
+            </a>
+          </div>
         
       </div>
     </div>
@@ -531,15 +533,15 @@
     <img
       x-cloak
       x-show="!$store.darkMode.on"
-      src="/images/logo.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz.svg"
+      class="h-[22px]"
       alt="Logo" />
     
     <img
       x-cloak
       x-show="$store.darkMode.on"
-      src="/images/logo-footer.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz-dark.svg"
+      class="h-[22px]"
       alt="Logo" />
   </div></a>
 </div>
@@ -618,14 +620,6 @@
     </div>
   
 
-  
-    <a
-      href="/about/"
-      class="hs-menus w-full rounded-lg px-3 py-2 text-center text-base font-semibold leading-7 text-gray-900 hover:text-[--hs-text-color-hover] dark:text-white"
-      >关于我</a
-    >
-  
-
 
 
   <div x-data="{ subMenuOpen: false }" class="hs-menus">
@@ -656,6 +650,12 @@
       x-collapse
       class="flex flex-col space-y-1"
       id="disclosure-1">
+      
+        <a
+          href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+          class="block rounded-lg px-3 py-2 text-center text-sm font-semibold leading-7 text-gray-900 hover:text-[--hs-text-color-hover] dark:text-white"
+          >文档</a
+        >
       
 
     </div>
@@ -696,12 +696,14 @@
 
   
     <div id="hs-feature" class="h-60 w-full md:h-120">
-
-
-
-
-<div class="h-full w-full bg-[#239dac] text-center"></div>
-</div>
+      <img
+        x-data="{ isGradient: false }"
+        :class="{ 'image-gradient': !isGradient }"
+        class="h-60 w-full object-cover md:h-120"
+        src="http://localhost:1313/images/posts/my-self-intro/about-header.jpg"
+        alt="Hero Image of content"
+        srcset="" />
+    </div>
   
 
 
@@ -723,20 +725,27 @@
               
               <span class="hs-content-category flex flex-row gap-1">
                 
+                  <span class="italic text-red-700"> > </span>
+                  <a
+                    class="hover:text-[--hs-text-color-hover] hover:underline hover:decoration-[--decoration-color] hover:underline-offset-4"
+                    href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+                    >文档</a
+                  >
+                
               </span>
             </div>
             <div
               id="hs-content-title"
               class="hs-content-title py-1 text-start text-3xl font-bold tracking-wide text-black dark:text-white lg:text-4xl">
-              关于我
+              About me
             </div>
 
             <div
               class="hs-content-meta flex flex-row flex-wrap items-center space-x-1 pb-1 pt-3.5 text-xs font-extralight tracking-wide text-gray-500/90 dark:text-gray-600">
-              <span>2024/01/13</span>
+              <span>2026/01/13</span>
               <div
                 class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
-              <span>48&nbsp;字数</span>
+              <span>213&nbsp;字数</span>
               <div
                 class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
               <span>1&nbsp;分钟</span>
@@ -780,9 +789,45 @@
           <div
             id="hs-content"
             class="hs-content format mx-auto mt-2 max-w-none dark:format-invert md:format-base format-figure:flex format-figure:flex-col format-figure:items-center format-img:cursor-zoom-in dark:text-gray-300 lg:mt-11">
-            <p>你好！我是 Studentalkz 的博主。</p>
-<p>这里是我的自我介绍内容……
-（你可以像写 Markdown 一样随意发挥，加图片、加列表都可以）</p>
+            <p>Hi! I&rsquo;m Alex &ldquo;aLexe1n&rdquo; Liu and you can call me Alex. Welcome to Studentalkz!</p>
+<h2 class="group head-tag" id="what-is-this-place">What is this place?<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#what-is-this-place"></a></h2><p>Studentalkz is my blog and a personal space to record all my notes and thoughts online. <strong>I believe the Internet is built for communicating, sharing and mutual inspiring.</strong> I would like to post some life recording, meaningful writing and useful resorces with the public to approach this goal.</p>
+<p>I wish you happy reading!</p>
+<h2 class="group head-tag" id="who-am-i">Who am I?<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#who-am-i"></a></h2><p>I am an undergraduate in Department of Computer Science and Technology, Tsinghua University.</p>
+
+  <figure class="data-image-info ">
+    <img
+      class="data-image"
+      src="https://cloud.tsinghua.edu.cn/f/302e0d5ffd6e40fa9b37/?dl=1"
+      alt="A photo of me in front of Tokyo Big Sight. Photographed on August 16 2025 (Day 1 of Comic Market 106)"
+      loading="lazy" />
+    <figcaption></figcaption>
+  </figure>
+
+<p>You can find me on 
+<a
+  href="https://github.com/9LucasCT"
+  
+    target="_blank"
+  
+  >GitHub</a
+>
+ or contact me via email (
+<a
+  href="mailto:liuct23@mails.tsinghua.edu.cn"
+  
+  >liuct23@mails.tsinghua.edu.cn</a
+>
+).</p>
+<h2 class="group head-tag" id="my-interest-is-in">My interest is in&hellip;<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#my-interest-is-in"></a></h2><p>Here are my interests and what you might find in my blog:</p>
+<ul>
+<li>🤖 <strong>Artificial intelligence</strong>: No.1 keyword for students major in computer science nowadays, no?</li>
+<li>✒ <strong>Linguistics</strong>: I want to learn French. Japanese, and whatever people speak.</li>
+<li>👾 <strong>Graphic design</strong>: I design slides and posters and might share them from time to time.</li>
+<li>⚽ <strong>Football</strong>: I support Barça and Beijing Guoan.</li>
+<li>🏎️ <strong>Racing</strong>: I watch Formula One and MotoGP - I&rsquo;m mainly a Tifosi but also support Max Verstappan and Marc Marquez.</li>
+<li>🎮 <strong>Games</strong>: I play Arknights, Girls&rsquo; Frontline and Counter-Strike.</li>
+</ul>
+<p>You are always welcome to talk about these with me. Hope you enjoy my blog!</p>
 
           </div>
 
@@ -790,6 +835,16 @@
             
             <span
               class="hs-content-tag flex flex-row flex-wrap justify-start gap-2 pl-1 text-sm font-normal tracking-wide text-gray-500/90 dark:text-gray-500">
+              
+                <a
+                  class="text-center hover:text-[--hs-text-color-hover]"
+                  href="http://localhost:1313/tags/%E6%9D%82%E8%B0%88/"
+                  ><span class="text-red-700 ">#</span
+                  ><span
+                    class="hover:text-[--hs-text-color-hover] hover:underline hover:decoration-[--decoration-color] hover:underline-offset-4"
+                    >杂谈</span
+                  ></a
+                >
               
             </span>
           </div>
@@ -965,6 +1020,26 @@
   <div class="flex h-5 space-x-3">
     
   
+    <a
+      href="mailto:liuct23@mails.tsinghua.edu.cn"
+      class="text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
+      <svg
+        class="size-4"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M513 583.8l448.5-448.5c-11.6-4.7-24.3-7.3-37.5-7.3H100c-12.7 0-24.9 2.4-36.1 6.7L513 583.8z"
+          p-id="88208"></path>
+        <path
+          d="M513 674.3L14.6 175.9C5.3 191.1 0 208.9 0 228v568c0 55.2 44.8 100 100 100h824c55.2 0 100-44.8 100-100V228c0-18.5-5.1-35.9-13.9-50.8L513 674.3z"
+          p-id="88209"></path>
+      </svg>
+      <span class="sr-only">Email page</span>
+    </a>
+  
 
   
 
@@ -978,7 +1053,7 @@
 
   
     <a
-      href="https://github.com/mrhelloboy/seven"
+      href="https://github.com/9LucasCT"
       class="text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
       <svg
         class="size-4"
@@ -1004,87 +1079,9 @@
   
 
   
-    <div x-data="{ openQC: false }">
-      <button
-        @click="openQC = !openQC; scrollY = window.scrollY; document.body.style.overflow = 'hidden';"
-        class="group relative block text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
-        <div
-          class="items-endtransition-transform relative flex h-full transform">
-          <div
-            class="transition-opacity group-hover:absolute group-hover:opacity-0">
-            <svg
-              class="size-4"
-              viewBox="0 0 1184 1024"
-              fill="currentColor"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="1495">
-              <path
-                d="M331.424 263.424q0-23.424-14.272-37.728t-37.728-14.272q-24.576 0-43.424 14.56t-18.848 37.44q0 22.272 18.848 36.864t43.424 14.56q23.424 0 37.728-14.016t14.272-37.44zM756 553.152q0-16-14.56-28.576t-37.44-12.576q-15.424 0-28.288 12.864t-12.864 28.288q0 16 12.864 28.864t28.288 12.864q22.848 0 37.44-12.576t14.56-29.152zM621.152 263.424q0-23.424-14.016-37.728t-37.44-14.272q-24.576 0-43.424 14.56t-18.848 37.44q0 22.272 18.848 36.864t43.424 14.56q23.424 0 37.44-14.016t14.016-37.44zM984 553.152q0-16-14.848-28.576t-37.152-12.576q-15.424 0-28.288 12.864t-12.864 28.288q0 16 12.864 28.864t28.288 12.864q22.272 0 37.152-12.576t14.848-29.152zM832 326.272q-17.728-2.272-40-2.272-96.576 0-177.728 44t-127.712 119.136-46.56 164.288q0 44.576 13.152 86.848-20 1.728-38.848 1.728-14.848 0-28.576-0.864t-31.424-3.712-25.44-4-31.136-6.016-28.576-6.016l-144.576 72.576 41.152-124.576q-165.728-116-165.728-280 0-96.576 55.712-177.728t150.848-127.712 207.712-46.56q100.576 0 190.016 37.728t149.728 104.288 78.016 148.864zM1170.272 646.848q0 66.848-39.136 127.712t-106.016 110.56l31.424 103.424-113.728-62.272q-85.728 21.152-124.576 21.152-96.576 0-177.728-40.288t-127.712-109.44-46.56-150.848 46.56-150.848 127.712-109.44 177.728-40.288q92 0 173.152 40.288t130.016 109.728 48.864 150.56z"
-                p-id="1496"></path>
-            </svg>
-          </div>
-
-          <div
-            class="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4"
-              fill="currentColor"
-              viewBox="0 -960 960 960">
-              <path
-                d="M520-120v-80h80v80h-80Zm-80-80v-200h80v200h-80Zm320-120v-160h80v160h-80Zm-80-160v-80h80v80h-80Zm-480 80v-80h80v80h-80Zm-80-80v-80h80v80h-80Zm360-280v-80h80v80h-80ZM180-660h120v-120H180v120Zm-60 60v-240h240v240H120Zm60 420h120v-120H180v120Zm-60 60v-240h240v240H120Zm540-540h120v-120H660v120Zm-60 60v-240h240v240H600Zm80 480v-120h-80v-80h160v120h80v80H680ZM520-400v-80h160v80H520Zm-160 0v-80h-80v-80h240v80h-80v80h-80Zm40-200v-160h80v80h80v80H400Zm-190-90v-60h60v60h-60Zm0 480v-60h60v60h-60Zm480-480v-60h60v60h-60Z" />
-            </svg>
-          </div>
-        </div>
-      </button>
-      <div
-        x-show="openQC"
-        x-transition:leave="ease-in duration-500"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        @keydown.window.escape="openQC = false; document.body.style.overflow = ''; window.scrollTo(0, scrollY);"
-        x-cloak
-        role="dialog"
-        aria-modal="true">
-        <div
-          class="fixed inset-0 z-50 bg-gray-900/85 backdrop-blur-md transition-opacity"></div>
-        <div class="fixed inset-0 z-50 w-full">
-          <div class="mx-auto flex h-full w-full items-center justify-center">
-            <img
-              @click.away="openQC = false; document.body.style.overflow = ''; window.scrollTo(0, scrollY);"
-              class="object-cover"
-              x-transition:leave="ease-in duration-500"
-              x-transition:leave-start="opacity-100"
-              x-transition:leave-end="opacity-0"
-              :class="openQC ? 'animate-scaleInCenter' : 'animate-scaleOutCenter'"
-              src="/images/society/wechat/wechat.jpg"
-              alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  
 
   
 
-  
-    <a
-      href=""
-      class="text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
-      <svg
-        class="size-4"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 20 20">
-        <path
-          fill="currentColor"
-          d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
-      </svg>
-
-      <span class="sr-only">X page</span>
-    </a>
   
 
   

@@ -235,15 +235,15 @@
     <img
       x-cloak
       x-show="!$store.darkMode.on"
-      src="/images/logo.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz.svg"
+      class="h-[22px]"
       alt="Logo" />
     
     <img
       x-cloak
       x-show="$store.darkMode.on"
-      src="/images/logo-footer.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz-dark.svg"
+      class="h-[22px]"
       alt="Logo" />
   </div></a>
 </div>
@@ -334,14 +334,6 @@
     </div>
   
 
-  
-    <a
-      href="/about/"
-      class="hs-menus text-sm font-semibold leading-6 text-gray-900 hover:text-[--hs-text-color-hover] dark:text-white"
-      >关于我</a
-    >
-  
-
 
 
   <div x-data="{ isOpen: false }" class="hs-menus relative">
@@ -377,6 +369,16 @@
       @scroll.window.away="isOpen = false"
       class="absolute -left-6 top-full z-10 mt-3 w-screen max-w-40 overflow-hidden rounded-xl bg-white/95 shadow-lg ring-1 ring-gray-900/5 backdrop-blur-xl dark:bg-gray-800/95">
       <div class="p-2">
+        
+          <div
+            class="relative rounded-lg px-4 py-2.5 text-sm leading-6 hover:bg-gray-300/30 hover:backdrop-blur-md">
+            <a
+              href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+              class="block font-semibold text-gray-900 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
+              文档
+              <span class="absolute inset-0"></span>
+            </a>
+          </div>
         
       </div>
     </div>
@@ -525,15 +527,15 @@
     <img
       x-cloak
       x-show="!$store.darkMode.on"
-      src="/images/logo.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz.svg"
+      class="h-[22px]"
       alt="Logo" />
     
     <img
       x-cloak
       x-show="$store.darkMode.on"
-      src="/images/logo-footer.svg"
-      class="h-[56px]"
+      src="/images/Studentalkz-dark.svg"
+      class="h-[22px]"
       alt="Logo" />
   </div></a>
 </div>
@@ -612,14 +614,6 @@
     </div>
   
 
-  
-    <a
-      href="/about/"
-      class="hs-menus w-full rounded-lg px-3 py-2 text-center text-base font-semibold leading-7 text-gray-900 hover:text-[--hs-text-color-hover] dark:text-white"
-      >关于我</a
-    >
-  
-
 
 
   <div x-data="{ subMenuOpen: false }" class="hs-menus">
@@ -650,6 +644,12 @@
       x-collapse
       class="flex flex-col space-y-1"
       id="disclosure-1">
+      
+        <a
+          href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+          class="block rounded-lg px-3 py-2 text-center text-sm font-semibold leading-7 text-gray-900 hover:text-[--hs-text-color-hover] dark:text-white"
+          >文档</a
+        >
       
 
     </div>
@@ -692,6 +692,38 @@
   <div class="mx-auto flex w-full max-w-250 grow flex-col">
     <div
       class="grid grid-flow-dense auto-rows-[minmax(100px,_2fr)] grid-cols-2 gap-5 px-10 py-10 md:grid-cols-4 lg:grid-cols-6">
+      
+
+        
+        
+        
+
+
+        <a
+          href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+          class="hs-taxonomy group col-span-1 row-span-1 flex transform flex-col justify-between rounded-2xl bg-[#0B9B8A] drop-shadow-xl duration-300 hover:scale-110 hover:drop-shadow-xl">
+          <div class="mx-3 my-1.5 flex flex-row items-center space-x-1">
+            <svg
+              class="icon"
+              width="15px"
+              height="15px"
+              viewBox="0 0 1024 1024"
+              version="1.1"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fill="#000000"
+                d="M1019.904 450.56L536.576 557.056l417.792 208.896C999.424 692.224 1024 606.208 1024 512c0-20.48 0-40.96-4.096-61.44z m-12.288-61.44C958.464 184.32 786.432 28.672 573.44 4.096L446.464 512l561.152-122.88zM737.28 970.752c73.728-36.864 139.264-90.112 188.416-159.744L507.904 602.112l229.376 368.64zM512 0C229.376 0 0 229.376 0 512s229.376 512 512 512c61.44 0 118.784-12.288 172.032-28.672L385.024 512 512 0z" />
+            </svg>
+            <p class="hs-taxonomy-number-">1</p>
+          </div>
+
+          <div
+            class="relative mx-3 mb-2 flex flex-row items-end justify-between space-x-1 group-hover:text-[--hs-text-color-hover]">
+            <p class="hs-taxonomy-title text-pretty">
+              文档
+            </p>
+          </div>
+        </a>
       
     </div>
   </div>
@@ -794,6 +826,26 @@
   <div class="flex h-5 space-x-3">
     
   
+    <a
+      href="mailto:liuct23@mails.tsinghua.edu.cn"
+      class="text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
+      <svg
+        class="size-4"
+        aria-hidden="true"
+        fill="currentColor"
+        viewBox="0 0 1024 1024"
+        version="1.1"
+        xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M513 583.8l448.5-448.5c-11.6-4.7-24.3-7.3-37.5-7.3H100c-12.7 0-24.9 2.4-36.1 6.7L513 583.8z"
+          p-id="88208"></path>
+        <path
+          d="M513 674.3L14.6 175.9C5.3 191.1 0 208.9 0 228v568c0 55.2 44.8 100 100 100h824c55.2 0 100-44.8 100-100V228c0-18.5-5.1-35.9-13.9-50.8L513 674.3z"
+          p-id="88209"></path>
+      </svg>
+      <span class="sr-only">Email page</span>
+    </a>
+  
 
   
 
@@ -807,7 +859,7 @@
 
   
     <a
-      href="https://github.com/mrhelloboy/seven"
+      href="https://github.com/9LucasCT"
       class="text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
       <svg
         class="size-4"
@@ -833,87 +885,9 @@
   
 
   
-    <div x-data="{ openQC: false }">
-      <button
-        @click="openQC = !openQC; scrollY = window.scrollY; document.body.style.overflow = 'hidden';"
-        class="group relative block text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
-        <div
-          class="items-endtransition-transform relative flex h-full transform">
-          <div
-            class="transition-opacity group-hover:absolute group-hover:opacity-0">
-            <svg
-              class="size-4"
-              viewBox="0 0 1184 1024"
-              fill="currentColor"
-              version="1.1"
-              xmlns="http://www.w3.org/2000/svg"
-              p-id="1495">
-              <path
-                d="M331.424 263.424q0-23.424-14.272-37.728t-37.728-14.272q-24.576 0-43.424 14.56t-18.848 37.44q0 22.272 18.848 36.864t43.424 14.56q23.424 0 37.728-14.016t14.272-37.44zM756 553.152q0-16-14.56-28.576t-37.44-12.576q-15.424 0-28.288 12.864t-12.864 28.288q0 16 12.864 28.864t28.288 12.864q22.848 0 37.44-12.576t14.56-29.152zM621.152 263.424q0-23.424-14.016-37.728t-37.44-14.272q-24.576 0-43.424 14.56t-18.848 37.44q0 22.272 18.848 36.864t43.424 14.56q23.424 0 37.44-14.016t14.016-37.44zM984 553.152q0-16-14.848-28.576t-37.152-12.576q-15.424 0-28.288 12.864t-12.864 28.288q0 16 12.864 28.864t28.288 12.864q22.272 0 37.152-12.576t14.848-29.152zM832 326.272q-17.728-2.272-40-2.272-96.576 0-177.728 44t-127.712 119.136-46.56 164.288q0 44.576 13.152 86.848-20 1.728-38.848 1.728-14.848 0-28.576-0.864t-31.424-3.712-25.44-4-31.136-6.016-28.576-6.016l-144.576 72.576 41.152-124.576q-165.728-116-165.728-280 0-96.576 55.712-177.728t150.848-127.712 207.712-46.56q100.576 0 190.016 37.728t149.728 104.288 78.016 148.864zM1170.272 646.848q0 66.848-39.136 127.712t-106.016 110.56l31.424 103.424-113.728-62.272q-85.728 21.152-124.576 21.152-96.576 0-177.728-40.288t-127.712-109.44-46.56-150.848 46.56-150.848 127.712-109.44 177.728-40.288q92 0 173.152 40.288t130.016 109.728 48.864 150.56z"
-                p-id="1496"></path>
-            </svg>
-          </div>
-
-          <div
-            class="absolute opacity-0 transition-opacity group-hover:relative group-hover:opacity-100">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="size-4"
-              fill="currentColor"
-              viewBox="0 -960 960 960">
-              <path
-                d="M520-120v-80h80v80h-80Zm-80-80v-200h80v200h-80Zm320-120v-160h80v160h-80Zm-80-160v-80h80v80h-80Zm-480 80v-80h80v80h-80Zm-80-80v-80h80v80h-80Zm360-280v-80h80v80h-80ZM180-660h120v-120H180v120Zm-60 60v-240h240v240H120Zm60 420h120v-120H180v120Zm-60 60v-240h240v240H120Zm540-540h120v-120H660v120Zm-60 60v-240h240v240H600Zm80 480v-120h-80v-80h160v120h80v80H680ZM520-400v-80h160v80H520Zm-160 0v-80h-80v-80h240v80h-80v80h-80Zm40-200v-160h80v80h80v80H400Zm-190-90v-60h60v60h-60Zm0 480v-60h60v60h-60Zm480-480v-60h60v60h-60Z" />
-            </svg>
-          </div>
-        </div>
-      </button>
-      <div
-        x-show="openQC"
-        x-transition:leave="ease-in duration-500"
-        x-transition:leave-start="opacity-100"
-        x-transition:leave-end="opacity-0"
-        @keydown.window.escape="openQC = false; document.body.style.overflow = ''; window.scrollTo(0, scrollY);"
-        x-cloak
-        role="dialog"
-        aria-modal="true">
-        <div
-          class="fixed inset-0 z-50 bg-gray-900/85 backdrop-blur-md transition-opacity"></div>
-        <div class="fixed inset-0 z-50 w-full">
-          <div class="mx-auto flex h-full w-full items-center justify-center">
-            <img
-              @click.away="openQC = false; document.body.style.overflow = ''; window.scrollTo(0, scrollY);"
-              class="object-cover"
-              x-transition:leave="ease-in duration-500"
-              x-transition:leave-start="opacity-100"
-              x-transition:leave-end="opacity-0"
-              :class="openQC ? 'animate-scaleInCenter' : 'animate-scaleOutCenter'"
-              src="/images/society/wechat/wechat.jpg"
-              alt="" />
-          </div>
-        </div>
-      </div>
-    </div>
-  
 
   
 
-  
-    <a
-      href=""
-      class="text-gray-600 hover:text-[--hs-text-color-hover] dark:text-gray-400 dark:hover:text-white">
-      <svg
-        class="size-4"
-        aria-hidden="true"
-        xmlns="http://www.w3.org/2000/svg"
-        fill="currentColor"
-        viewBox="0 0 20 20">
-        <path
-          fill="currentColor"
-          d="M12.186 8.672 18.743.947h-2.927l-5.005 5.9-4.44-5.9H0l7.434 9.876-6.986 8.23h2.927l5.434-6.4 4.82 6.4H20L12.186 8.672Zm-2.267 2.671L8.544 9.515 3.2 2.42h2.2l4.312 5.719 1.375 1.828 5.731 7.613h-2.2l-4.699-6.237Z" />
-      </svg>
-
-      <span class="sr-only">X page</span>
-    </a>
   
 
   

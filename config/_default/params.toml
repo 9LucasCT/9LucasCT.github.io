@@ -32,11 +32,11 @@
 [logo]
   # Image logo or Text logo
   # Recommended to set image as logo. (prefer)
-  img = "/images/logo.svg"
-  img_dark = "/images/logo-footer.svg"
+  img = "/images/Studentalkz.svg"
+  img_dark = "/images/Studentalkz-dark.svg"
 
   # Max height not greater than 56 (px). default: 56 (px)
-  customLogoHeight = "56"
+  customLogoHeight = "22"
   customLogoWidth = "120"
   text = ""
 
@@ -48,16 +48,16 @@
 
 [follow]
   [follow.email]
-    enable = false
-    url = ""
+    enable = true
+    url = "liuct23@mails.tsinghua.edu.cn"
   [follow.github]
     enable = true
-    url = "https://github.com/mrhelloboy/seven"
+    url = "https://github.com/9LucasCT"
   [follow.x]
-    enable = true
+    enable = false
     url = ""
   [follow.wechat]
-    enable = true
+    enable = false
     QRCodeUrl = "/images/society/wechat/wechat.jpg"
 
 [copyright]
