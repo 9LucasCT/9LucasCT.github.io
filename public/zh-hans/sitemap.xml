@@ -2,6 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://localhost:1313/posts/my-self-intro/</loc>
+    <lastmod>2026-01-13T18:16:18+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2026-01-13T18:16:18+08:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/</loc>
+    <lastmod>2026-01-13T18:16:18+08:00</lastmod>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="http://localhost:1313/en/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="zh-hans"
+                href="http://localhost:1313/"
+                />
+  </url><url>
+    <loc>http://localhost:1313/about/</loc>
+    <lastmod>2026-01-13T18:12:43+08:00</lastmod>
+  </url><url>
     <loc>http://localhost:1313/categories/</loc>
     <xhtml:link
                 rel="alternate"
@@ -12,18 +34,6 @@
                 rel="alternate"
                 hreflang="zh-hans"
                 href="http://localhost:1313/categories/"
-                />
-  </url><url>
-    <loc>http://localhost:1313/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="http://localhost:1313/en/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="zh-hans"
-                href="http://localhost:1313/"
                 />
   </url><url>
     <loc>http://localhost:1313/tags/</loc>

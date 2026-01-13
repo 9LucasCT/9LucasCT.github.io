@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Seven 主题</title>
+    <link>http://localhost:1313/posts/</link>
+    <description>Recent content in Posts on Seven 主题</description>
+    <generator>Hugo</generator>
+    <language>zh-hans</language>
+    <lastBuildDate>Tue, 13 Jan 2026 18:16:18 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Self Intro</title>
+      <link>http://localhost:1313/posts/my-self-intro/</link>
+      <pubDate>Tue, 13 Jan 2026 18:16:18 +0800</pubDate>
+      <guid>http://localhost:1313/posts/my-self-intro/</guid>
+      <description>&lt;h1 class=&#34;group head-tag&#34; id=&#34;大家好&#34;&gt;大家好&lt;a data-title-of-head class=&#34;group-hover:after:content-[&#39;__#&#39;] no-underline hover:text-[--hs-text-color-hover]&#34; href=&#34;#%e5%a4%a7%e5%ae%b6%e5%a5%bd&#34;&gt;&lt;/a&gt;&lt;/h1&gt;&lt;p&gt;我是 Studentalkz……&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
