@@ -2,6 +2,9 @@
 # disableToTop = false
 # disableHightlight = false
 
+# Enable Math (KaTeX)
+math = true
+
 # There's a transition animation when you turn on dark mode.
 # disableDarkAnimate = false
 

@@ -16,7 +16,7 @@ Hi! I'm Alex "aLexe1n" Liu and you can call me Alex. Welcome to Studentalkz!
 
 Studentalkz is my blog and a personal space to record all my notes and thoughts online. **I believe the Internet is built for communicating, sharing and mutual inspiring.** I would like to post some life recording, meaningful writing and useful resorces with the public to approach this goal.
 
-I wish you happy reading!
+I wish you happy reading! 
 
 ## Who am I?
 
