@@ -7,10 +7,7 @@
       id="viewport"
       content="width=device-width, initial-scale=1.0" />
     <title>
-      
-            posts |
-            Studentalkz
-          
+      日本旅行规划 | Studentalkz
     </title><meta
   name="application-name"
   content="Seven Theme" />
@@ -19,11 +16,11 @@
   content="Seven Theme" />
 
 
-  <meta name="title" content="Posts" />
+  <meta name="title" content="日本旅行规划" />
 
 
 
-  <meta name="description" content="一款简洁、漂亮的 HUGO 博客主题" />
+  <meta name="description" content="All about Studentalz and Alex &#34;aLexe1n&#34; Liu." />
 <meta name="theme-color" content="#ffffff" /><link rel="icon" href="/favicon.svg" /><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" /><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
 
 
@@ -67,7 +64,13 @@
 
 
 <link href="/font/Oswald-VariableFont_wght/result.css" rel="stylesheet" />
-<script
+
+  
+    
+    
+    
+    <link href="/css/syntax.css" rel="stylesheet" />
+  <script
   defer
   src="https://cdn.jsdelivr.net/npm/@alpinejs/intersect@3.13.10/dist/cdn.min.js"></script>
 <script
@@ -637,59 +640,196 @@
   </div>
 </header>
 
-  <div class="mx-auto flex w-full max-w-250 grow flex-col p-6 lg:px-8">
-    <ul
-      class="mx-auto grid w-full grid-cols-1 gap-x-4 gap-y-6 md:grid-cols-2 lg:grid-cols-3">
-      
-      
-        <li
-  x-data="{ isLoaded: false }"
-  class="items-stretch"
-  x-intersect.threshold.30="isLoaded = true">
-  <div x-show="!isLoaded" x-cloak class="h-56 w-full bg-transparent"></div>
+  
+  
+
+  
+    <div id="hs-feature" class="h-60 w-full md:h-120">
+      <img
+        x-data="{ isGradient: false }"
+        :class="{ 'image-gradient': !isGradient }"
+        class="h-60 w-full object-cover md:h-120"
+        src="http://localhost:1313/images/posts/my-self-intro/about-header.jpg"
+        alt="Hero Image of content"
+        srcset="" />
+    </div>
+  
+
+
   <div
-    x-show="isLoaded"
-    x-cloak
-    class="group h-full animate-slideTop overflow-hidden rounded-md bg-white/50 shadow-[0_7px_29px_0_rgba(100,100,111,0.2)] backdrop-blur-md transition hover:shadow-md dark:bg-gray-800/70 dark:shadow-[0_5px_15px_rgba(0,0,0,0.35)]">
-    <div class="h-64 w-full md:h-48">
+    id="hs-content-container"
+    class="my-5 w-full rounded-b-lg px-5 md:px-10 lg:px-1">
+    <div
+      class="mx-auto flex max-w-screen-xl lg:grid lg:grid-flow-col lg:grid-cols-4 xl:grid-cols-5">
       
-        <div
-          x-show="!isLoaded"
-          x-cloak
-          class="h-full w-full bg-transparent"></div>
-        <img
-          x-show="isLoaded"
-          x-cloak
-          :src="'http://localhost:1313/images/posts/my-self-intro/about-header.jpg'"
-          :alt="'/images/posts/my-self-intro/about-header.jpg'"
-          loading="lazy"
-          decoding="async"
-          class="h-full w-full object-cover" />
+      <div
+  class="hidden lg:sticky lg:top-28 lg:mt-2 lg:flex lg:max-w-60 lg:flex-col lg:items-stretch lg:overflow-y-auto"></div>
+
       
+      <div id="hs-container" class="mx-auto w-full lg:col-span-2 xl:col-span-3">
+        <div class="py-5 md:px-1 lg:px-5">
+          <div class="flex w-full flex-col">
+            <div
+              class="hs-content-meta flex flex-row flex-wrap items-center space-x-1 pb-2 pt-1 text-xs font-normal tracking-wide text-gray-500/90 dark:text-gray-500">
+              
+              <span class="hs-content-category flex flex-row gap-1">
+                
+                  <span class="italic text-red-700"> > </span>
+                  <a
+                    class="hover:text-[--hs-text-color-hover] hover:underline hover:decoration-[--decoration-color] hover:underline-offset-4"
+                    href="http://localhost:1313/categories/%E6%96%87%E6%A1%A3/"
+                    >文档</a
+                  >
+                
+              </span>
+            </div>
+            <div
+              id="hs-content-title"
+              class="hs-content-title py-1 text-start text-3xl font-bold tracking-wide text-black dark:text-white lg:text-4xl">
+              日本旅行规划
+            </div>
+
+            <div
+              class="hs-content-meta flex flex-row flex-wrap items-center space-x-1 pb-1 pt-3.5 text-xs font-extralight tracking-wide text-gray-500/90 dark:text-gray-600">
+              <span>0001/01/01</span>
+              <div
+                class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
+              <span>0&nbsp;字数</span>
+              <div
+                class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
+              <span>0&nbsp;分钟</span>
+              
+                <div
+                  class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
+                <p>
+                  <span
+                    id="twikoo_visitors"
+                    class="page-info-pageview-count"
+                    data-path="/%E6%9D%82%E8%B0%88/"
+                    >...</span
+                  >
+                  &nbsp;阅读量
+                </p>
+              
+              
+                
+                  <div
+                    class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
+                  <button
+                    x-data
+                    @click="toComment()"
+                    id="speed-comment-count-id"
+                    class="whitespace-nowrap hover:text-[--hs-text-color-hover] hover:underline hover:decoration-[--hs-decoration-color] hover:underline-offset-4">
+                    <span
+                      class="waline-comment-count"
+                      data-path="/%E6%9D%82%E8%B0%88/"
+                      >...</span
+                    >
+                    &nbsp;评论数
+                  </button>
+                
+              
+            </div>
+          </div>
+
+          
+
+
+          <div
+            id="hs-content"
+            class="hs-content format mx-auto mt-2 max-w-none dark:format-invert md:format-base format-figure:flex format-figure:flex-col format-figure:items-center format-img:cursor-zoom-in dark:text-gray-300 lg:mt-11">
+            
+          </div>
+
+          <div class="hs-content-meta pb-5 pt-3">
+            
+            <span
+              class="hs-content-tag flex flex-row flex-wrap justify-start gap-2 pl-1 text-sm font-normal tracking-wide text-gray-500/90 dark:text-gray-500">
+              
+                <a
+                  class="text-center hover:text-[--hs-text-color-hover]"
+                  href="http://localhost:1313/tags/%E6%97%85%E8%A1%8C/"
+                  ><span class="text-red-700 ">#</span
+                  ><span
+                    class="hover:text-[--hs-text-color-hover] hover:underline hover:decoration-[--decoration-color] hover:underline-offset-4"
+                    >旅行</span
+                  ></a
+                >
+              
+            </span>
+          </div>
+        </div>
+      </div>
+      
+      
+
     </div>
 
-    <div class="px-4 py-6 sm:p-6">
-      <p class="hs-content-meta block text-xs text-gray-600 dark:text-gray-400">
-        2026/01/13
-      </p>
+    
+    
+      <div
+        id="hs-comment"
+        class="mx-auto max-w-screen-xl lg:grid lg:grid-cols-4 xl:grid-cols-5">
+        <span class="hidden lg:block"></span>
+        <div class="items-stretch lg:col-span-2 lg:col-start-2 xl:col-span-3">
 
-      <a href="http://localhost:1313/about/">
-        <p
-          class="hs-content-title mt-2 text-lg text-gray-900 group-hover:text-[--hs-text-color-hover] dark:text-gray-300">
-          About me
-        </p>
-      </a>
-    </div>
-  </div>
-</li>
+  <div id="waline" class="py-5 md:px-2 lg:px-8 dark:text-gray-400"></div>
 
-      
-    </ul>
+  
+  
+
+  
+  
+  
+  
+  
+  
+  
+  <script
+    defer
+    type="module"
+    src="/js/waline/index.js"></script>
+
+
+
+
+
+
+
+</div>
+      </div>
     
 
-
-
   </div>
+
+  
+  
+    <button
+      x-data="{
+        show: false,
+        init() {
+          window.addEventListener('scroll', () => {
+            this.show = window.scrollY > 100
+          })
+        }
+      }"
+      x-show="show"
+      @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      x-cloak
+      type="button"
+      class="buttom-circle fixed bottom-24 end-8 flex h-14 w-14 items-center justify-center bg-white/85 text-gray-500 backdrop-blur-md dark:bg-gray-800/85 dark:text-gray-500 md:end-20">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="size-6"
+        fill="currentColor"
+        viewBox="0 -960 960 960">
+        <path
+          d="M440-160v-487L216-423l-56-57 320-320 320 320-56 57-224-224v487h-80Z" />
+      </svg>
+      <span class="sr-only">Go to Top</span>
+    </button>
+  
+
 
 
     
@@ -905,6 +1045,34 @@
     版权所有
   </span>
 </footer>
+
+  
+  
+  <script src="/js/toc.js"></script>
+
+  
+  
+  <script src="/js/zoom-img.js" defer></script>
+
+  
+  
+  <script src="/js/link-to-top.js" defer></script>
+
+  
+    
+    
+    <script src="/js/code-copy.js" defer></script>
+  
+
+
+  <script>
+    function toComment() {
+      window.scrollTo({
+        top: document.getElementById("hs-comment").offsetTop - 100,
+        behavior: "smooth",
+      });
+    }
+  </script>
 
   
 
