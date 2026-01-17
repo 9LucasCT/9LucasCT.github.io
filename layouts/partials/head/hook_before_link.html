@@ -16,3 +16,7 @@
     });
 </script>
 {{ end }}
+
+{{ with resources.Get "sass/admonitions.scss" | toCSS | minify | fingerprint }}
+  <link rel="stylesheet" href="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}">
+{{ end }}

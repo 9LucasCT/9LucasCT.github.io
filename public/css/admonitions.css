@@ -1,0 +1,77 @@
+/* Admonitions (Callouts) CSS */
+:root {
+  --admonition-note-color: #0969da;
+  --admonition-tip-color: #1a7f37;
+  --admonition-important-color: #8250df;
+  --admonition-warning-color: #9a6700;
+  --admonition-caution-color: #d1242f;
+  
+  --admonition-bg-opacity: 0.1;
+}
+
+[data-theme="dark"] {
+  --admonition-note-color: #2f81f7;
+  --admonition-tip-color: #3fb950;
+  --admonition-important-color: #a371f7;
+  --admonition-warning-color: #d29922;
+  --admonition-caution-color: #f85149;
+}
+
+.admonition {
+  margin-bottom: 16px;
+  border-left: 4px solid var(--admonition-color);
+  background-color: color-mix(in srgb, var(--admonition-color), transparent calc(100% - (var(--admonition-bg-opacity) * 100)));
+  border-radius: 6px;
+  overflow: hidden;
+  page-break-inside: avoid;
+}
+
+.admonition-title {
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  font-weight: 600;
+  font-size: 0.95em;
+  background-color: color-mix(in srgb, var(--admonition-color), transparent 90%);
+  color: var(--admonition-color);
+  user-select: none;
+}
+
+.admonition-content {
+  padding: 8px 16px;
+  overflow-x: auto;
+}
+
+.admonition-content > :first-child {
+  margin-top: 0;
+}
+
+.admonition-content > :last-child {
+  margin-bottom: 0;
+}
+
+/* Variants */
+.admonition-note { --admonition-color: var(--admonition-note-color); }
+.admonition-tip { --admonition-color: var(--admonition-tip-color); }
+.admonition-important { --admonition-color: var(--admonition-important-color); }
+.admonition-warning { --admonition-color: var(--admonition-warning-color); }
+.admonition-caution { --admonition-color: var(--admonition-caution-color); }
+
+/* Fallback for other names */
+.admonition-info { --admonition-color: var(--admonition-note-color); }
+.admonition-success { --admonition-color: var(--admonition-tip-color); }
+.admonition-question { --admonition-color: var(--admonition-warning-color); }
+.admonition-failure, .admonition-danger, .admonition-bug { --admonition-color: var(--admonition-caution-color); }
+.admonition-example { --admonition-color: var(--admonition-important-color); }
+.admonition-quote { --admonition-color: #6e7781; }
+
+/* Dark mode adjustment if not handled by root vars */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --admonition-note-color: #2f81f7;
+    --admonition-tip-color: #3fb950;
+    --admonition-important-color: #a371f7;
+    --admonition-warning-color: #d29922;
+    --admonition-caution-color: #f85149;
+  }
+}
