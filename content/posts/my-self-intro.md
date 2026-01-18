@@ -2,7 +2,7 @@
 title: 'About me'
 date: '2026-01-13'
 draft: false
-categories: ["文档"]
+categories: ["其他"]
 tags: ["杂谈"]
 layout: "docs"
 url: "about"

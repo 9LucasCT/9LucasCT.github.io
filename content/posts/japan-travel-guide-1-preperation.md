@@ -2,12 +2,12 @@
 title: '日本旅行 1：事前准备'
 date: '2026-01-14'
 draft: false
-categories: ["文档"]
+categories: ["生活"]
 tags: ["旅行"]
 layout: "docs"
 url: "japan-travel-guide-1-preperation"
 image: "/images/posts/travel/jp-1-header.jpg"
-description: "2025 年 8 月在日本 (大阪—奈良—京都—东京) 的 11 天旅行计划。<br>第 1 部分，关于签证、交通等的信息，以及必要物品的准备。"
+description: "2025 年 8 月在日本 (大阪—奈良—京都—东京) 的 11 天旅行计划第 1 部分，关于签证、交通等的信息，以及必要物品的准备。"
 ---
 
 > [!ABSTRACT] 关于本文
