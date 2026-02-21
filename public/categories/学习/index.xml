@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>学习 on Studentalkz</title>
+    <link>http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0/</link>
+    <description>Recent content in 学习 on Studentalkz</description>
+    <generator>Hugo</generator>
+    <language>zh-hans</language>
+    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E5%AD%A6%E4%B9%A0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>编译原理 | 2026 年 1 月期末试题</title>
+      <link>http://localhost:1313/pcc-final-2026/</link>
+      <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/pcc-final-2026/</guid>
+      <description>&lt;h2 class=&#34;group head-tag&#34; id=&#34;一词法分析和编译基础知识10分&#34;&gt;一、词法分析和编译基础知识（10分）&lt;a data-title-of-head class=&#34;group-hover:after:content-[&#39;__#&#39;] no-underline hover:text-[--hs-text-color-hover]&#34; href=&#34;#%e4%b8%80%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%92%8c%e7%bc%96%e8%af%91%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%8610%e5%88%86&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;（2分）下列哪项工作属于编译器后端的典型任务（）&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A. 寄存器分配&lt;/li&gt;&#xA;&lt;li&gt;B. 语法分析&lt;/li&gt;&#xA;&lt;li&gt;C. 语义分析&lt;/li&gt;&#xA;&lt;li&gt;D. 常量折叠&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;（2分）词法分析过程中常用的单词描述工具是（）&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

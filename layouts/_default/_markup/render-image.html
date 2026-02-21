@@ -1,0 +1,23 @@
+{{- $img := .Destination -}}
+{{- if not (urls.Parse $img).IsAbs -}}
+  {{- $res := resources.Get (strings.TrimPrefix "/" $img) -}}
+  {{- if $res -}}
+    {{- $img = $res.RelPermalink -}}
+  {{- end -}}
+{{- end -}}
+{{ if .IsBlock }}
+  <figure class="data-image-info {{ .Attributes.class }}">
+    <img
+      class="data-image"
+      src="{{ $img | safeURL }}"
+      alt="{{ .Text }}"
+      loading="lazy" />
+    <figcaption>{{ with .Title | safeHTML }}{{ . }}{{ end }}</figcaption>
+  </figure>
+{{ else }}
+  <img
+    class="data-image"
+    src="{{ $img | safeURL }}"
+    alt="{{ .Text }}"
+    loading="lazy" />
+{{ end }}
