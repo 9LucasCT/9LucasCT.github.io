@@ -7,11 +7,17 @@ tags: ["编译原理", "资源分享"]
 layout: "docs"
 url: "pcc-final-2026"
 image: "/images/posts/travel/jp-1-header.jpg"
-description: "清华大学计算机系《编译原理》课程在 2025-2026 年秋季学期的期末试题。满分 100 分，考试时间 2026 年 1 月 11 日 14:30 - 16:30。个人整理，内容仅供参考。"
+description: "清华大学计算机系 2025-2026 年秋季学期《编译原理》课程的期末试题，由 aLexe1n 个人整理，内容仅供参考。"
 ---
 
 > [!ABSTRACT] 关于本文
-> 本篇文章系清华大学计算机系《编译原理》课程在 2025-2026 年秋季学期的期末试题。全卷满分 100 分，考试时间 2026 年 1 月 11 日 14:30 - 16:30。由 aLexe1n 个人整理，内容仅供参考。（更新未完成）
+> 本篇文章系清华大学计算机系 2025-2026 年秋季学期《编译原理》课程的期末试题。
+> - 考试时间 2026 年 1 月 11 日 14:30 - 16:30
+> - 全卷满分 100 分，平均分约 80 分
+> - 试卷图片由 aLexe1n 二次制作，格式与排版与原卷略有出入，但内容一致
+> - 由于原卷黑白打印，本试题中的代码均不进行高亮处理，烦请谅解
+> 
+> 本套试题由 aLexe1n 个人整理，内容仅供参考。本人不计划提供本套试卷的答案，但欢迎一切围绕题目和答案的友善讨论。
 
 ## 一、词法分析和编译基础知识（10分）
 
@@ -35,7 +41,7 @@ description: "清华大学计算机系《编译原理》课程在 2025-2026 年�
 
 4. （4分）考虑以下 TAC 代码,列出程序的所有基本块并给制对应的控制流图。
 
-```c
+```
 _Main:
 	_T3 = (_TI<_T2)
 	if (_T3==0) branch _L1
@@ -97,7 +103,7 @@ $$
 
 针对该翻译模式构造的一个自上而下的递归下降（预测）翻译程序如下，其中使用了与课程中相同的 $\texttt{MatchToken}$ 函数与 $\texttt{lookahead}$ 变量，试补全程序代码。
 
-```c
+```
 int main() {
     int val = ParseS(0);
     printf("%d\n", val);
@@ -155,7 +161,7 @@ int ParseB(int i) {
 - 过程活动记录中的控制信息包括静态链 SL、动态链 DL，以及返回地址 RA。
 - 程序的执行遵循静态作用域规则。
 
-```pascal
+```
 (1)  var p, q, r;
 (2)  procedure func1;
 (3)      var a, b;
@@ -274,3 +280,166 @@ $$
 | 13  | $\#c$    |     $c\#$ | 匹配符号                           |
 | 14  | $\#$     |      $\#$ | 结束                             |
 
+
+## 七、静态语义分析和中间代码生成（15分）
+
+LLVM 是一个模块化编译器框架。前端会对高级编程语言源码（如 C、C++、Rust 等）进行词法和语法分析，生成 LLVM IR（LLVM 中间表示），并发送给 LLVM 后端，生成面向不同架构（如 x86、RISCV 等）的机器码。其中，前端生成 LLVM IR 的过程类似我们课堂上学过的中间代码生成。在本题中，我们使用简化的生成接口：
+
+- 以 $\texttt{\%}$ 开头的标识符（如 $\texttt{\%i1, \%t1}$）是临时寄存器。函数 $\texttt{new\_temp()}$ 会自动生成一个新的、不重复的临时寄存器名。
+- 所有数据访问需要指明类型，如 $\texttt{i1}$ 表示 1 bit 整型（即布尔）、$\texttt{i32}$ 表示 32bit 整型
+- 辅助函数 $\texttt{gen()}$, $\texttt{new\_temp()}$, $\texttt{new\_label()}$ 的功能与课程定义一致。
+- $\texttt{S.code}$ 代表 $S$ 生成的中间代码字符串。
+- 本题可能用到的 LLVM IR 指令如下表所示，其中 $\texttt{\%a}$, $\texttt{\%b}$, $\texttt{\%r}$, $\texttt{\%ptr}$ 为临时变量名，$\texttt{T}$, $\texttt{ST}$, $\texttt{TT}$ 为类型名，$\texttt{T*}$ 为指向 $\texttt{T}$ 类型数据的指针，$\texttt{\%L}$, $\texttt{\%L1}$, $\texttt{\%L2}$ 为跳转标签，$\texttt{idx}$ 为立即数。这些可以修改，其余内容直接照抄即可。
+
+| 指令格式                                                | 作用                                                                           |
+| :-------------------------------------------------- | :--------------------------------------------------------------------------- |
+| `%r = add i32 %a, %b`                               | 整数加法。                                                                        |
+| `%r = alloca T`                                     | 在栈上分配类型 $\texttt{T}$ 的空间，返回指针 $\texttt{T*}$ 。                                |
+| `store T %v, T* %ptr`                               | 将值 $\texttt{\%v}$ 存入地址 $\texttt{\%ptr}$。                                     |
+| `%r = load T, T* %ptr`                              | 从地址 $\texttt{\%ptr}$ 读取值。                                                    |
+| `%r = icmp eq T %a, %b`                             | 比较 $\texttt{\%a}$, $\texttt{\%b}$ 是否相等，返回布尔值（$\texttt{i1}$）。                 |
+| `br i1 %cond, label %L1, label %L2`                 | 条件跳转，当 $\texttt{\%cond}$ 为 1 时跳转到 $\texttt{\%L1}$，为 0 时跳转到 $\texttt{\%L2}$。  |
+| `br label %L`                                       | 无条件跳转。                                                                       |
+| `switch T %val, label %def [ T c1, label %L1 ... ]` | 多路分支跳转。如果 $\texttt{\%val == c1}$ 跳转到 $\texttt{\%L1}$，否则跳转到 $\texttt{\%def}$。 |
+| `%r = getelementptr T, T* %ptr, i32 0, i32 idx`     | 计算结构体第 $\texttt{idx}$ 个（从 0 开始）成员地址。假设结果类型为成员指针。                             |
+| `%r = bitcast ST %val to TT`                        | 将 $\texttt{ST}$ 类型的 $\texttt{\%val}$ 强制转换为 $\texttt{TT}$ 类型的 $\texttt{\%r}$  |
+
+Rust 是一款注重内存安全与高性能的系统级编程语言，它同样使用 LLVM 作为编译后端。
+
+1. （8分） 我们考虑 Rust 中的 $\mathrm{match}$ 语法，它的基本功能是通过匹配返回一个值（注意，与 C++ 不同，它是一个有返回值的表达式）（这里的大括号是语法的一部分）。
+$$
+E \to \text{match} \; E_{cond} \; \{  \; P_1 \Rightarrow E_1, \_ \Rightarrow E_{default} \; \}
+$$
+它的语义是：计算 $E_{cond}$，如果 $E_{cond}$ 的值等于 $P_1$，那么执行 $E_1$，并将结果作为整个表达式的值；否则执行 $E_{default}$，并将结果作为整个表达式的值。$E$、$E_1$ 和 $E_{default}$ 的类型相同。
+
+补全下面的 LLVM IR 生成规则。其中 $\texttt{result\_ptr}$ 用来存放 $\mathrm{match}$ 表达式最终的返回值地址。类型检查等代码省略，默认已经计算完成。
+
+```
+E -> match E_cond { P1 => E1, _ => E_def } {
+    E.addr := new_temp();
+    cond_val := new_temp();
+    val1 := new_temp();
+    val_def := new_temp();
+    result_ptr := E.addr;
+    gen(E.addr " = alloca " E.type);  // 分配栈空间用于存储最终结果
+
+    L_check := new_label();  // 检查条件
+    L_case1 := new_label();  // 匹配 P1 的分支
+    L_def   := new_label();  // 默认分支
+    L_end   := new_label();  // 结束合并点
+
+    _____(1)_____; // 为条件值 cond_val 生成临时寄存器
+    
+    E.code := E_cond.code ||
+              gen(cond_val " = load " E_cond.type ", " E_cond.addr) ||
+              _____(2)_____; // 提示：此处 P1.value 已经计算完成
+
+    E.code := E.code || gen(L_case1 ":") ||
+              E1.code ||
+              gen(val1 " = load " E1.type ", " E1.addr) ||
+              _____(3)_____ ||
+              gen("br label " L_end);
+
+    E.code := E.code || gen(L_def ":") ||
+              E_def.code ||
+              gen(val_def " = load " E_def.type ", " E_def.addr) ||
+              gen("store " E_def.type " " val_def ", " E_def.type " * " result_ptr) ||
+              _____(4)_____;
+
+    E.code := E.code || gen(L_end ":");
+}
+```
+
+2. （4分） 在 Rust 中，枚举类型可以包含每种类别独有的信息，假设有一个名为 $\texttt{Message}$ 的枚举类型，当其为 $\texttt{Empty}$ 是没有附加信息，但当其为 $\texttt{Post}$ 时可以附带两个 $\texttt{i32}$ 类型数据。
+
+```rust
+enum Message {
+    Empty,
+    Post(i32, i32),
+}
+```
+
+其内存布局等同于如下结构体（Tagged Union）：
+
+```c
+struct Message {
+    int tag;    // 0 代表 Empty, 1 代表 Post
+    union {
+        int dummy;      // Empty 变体没有数据
+        struct { int x; int y; } post_data; // Post 变体包含 x, y
+    } payload;
+};
+```
+
+前文提到的 $\mathrm{match}$ 语法常被用来进行枚举类型解包。为了简洁起见，我们单独定义一条语法（在真实编译器中，类型和地址信息都是自动推导的）（这里的大括号是语法的一部分）：
+$$
+E \to \text{match } E_{cond} \; \{ \; \text{Post } \{ id_1, id_2 \} \Rightarrow E_1, \_ \Rightarrow E_{default} \; \}
+$$
+	
+假设：
+- $\texttt{E\_cond.addr}$ 指向 struct $\texttt{Message}$ 类型的数据。
+- struct $\texttt{Message}$ 在 LLVM 中对应类型 $\texttt{\%Message}$。
+- $\texttt{tag}$ 字段是结构体的第 0 个成员，$\texttt{payload}$ 是第 1 个成员。
+- $\texttt{post\_data}$ 结构体（包含 x, y）在 LLVM 中对应类型 $\texttt{\%PostData}$。
+
+请你补全用于处理 Message::Post 分支的代码生成逻辑。
+
+```
+E -> match E_cond { Post { id1, id2 } => E1, _ => E_def } {
+    // ... 前略：结果分配、E_cond 代码生成 ...
+
+    tag_ptr := new_temp();
+    tag_val := new_temp();
+    E.code := E.code ||
+              _____(5)_____ || // 获取 tag 字段的地址（tag 是结构体第 0 个成员）
+              gen(tag_val " = load i32, i32* " tag_ptr) ||
+              gen("switch i32 " tag_val ", label " L_def " [ i32 1, label " L_post " ]");
+
+    payload_base := new_temp();
+    post_ptr := new_temp();
+    
+    E.code := E.code ||
+              gen(L_post ":") ||
+              gen(payload_base " = getelementptr %Message, %Message* " E_cond.addr ", i32 0, i32 1") ||
+              gen(post_ptr " = bitcast ... " payload_base " to %PostData*");
+
+    x_ptr := new_temp();
+    y_ptr := new_temp();
+    E.code := E.code ||
+              _____(6)_____ || // 计算 x 的地址
+              gen(y_ptr " = getelementptr %PostData, %PostData* " post_ptr ", i32 0, i32 1");
+
+    E.code := E.code || E1.code;
+
+    // ... 后略：存储结果并跳转 ...
+}
+```
+
+3. （3分） 现代编译器通常会直接生成 SSA（静态单赋值）形式的代码，以便提升数据流优化效果。这导致两个不同的基本块无法同时对同一变量进行赋值。LLVM IR 中提供了一条特殊指令（$\texttt{phi}$）用于合并来自不同基本块的值。
+
+在这种模式下，$\mathrm{match}$ 表达式的最终值需要通过 Phi 节点 ($\texttt{phi}$) 在汇合块 $\texttt{L\_end}$ 中合并。
+
+| 指令格式                                    | 作用                                                                                                                                                                    |
+| :-------------------------------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `%r = phi T [ %v1, %L1 ], [ %v2, %L2 ]` | 如果当前控制流是从基本块 $\texttt{\%L1}$ 跳转过来的，则 $\texttt{\%r}$ 取值 $\texttt{\%v1}$；如果是从 $\texttt{\%L2}$ 跳转过来的，则取值 $\texttt{\%v2}$。$\texttt{\%L1}$ 和 $\texttt{\%L2}$ 都是当前基本块的直接前驱。 |
+
+假设编译器引入了一个辅助函数 $\texttt{get\_current\_label()}$，用于获取当前正在生成指令的基本块标签。请重构代码生成逻辑，移除 $\texttt{result\_ptr}$，并在 $\texttt{L\_end}$ 处使用 $\texttt{phi}$ 指令合并结果。（注：$E_1$ 和 $E_{default}$ 的代码生成过程可能会产生新的基本块，因此它们结束时的位置是不确定的。）
+
+```
+E -> match E_cond { Move { id1, id2 } => E1, _ => E_def } {
+    // ... (前序代码：E_cond 计算，Switch 跳转等，与第二问相同) ...
+    E.code := E.code || gen(L_move ":");
+    // ... (解构绑定 id1, id2 的代码，与第二问相同) ...
+
+    // 生成 E1 的代码，假设 E1.result 存放了 E1 计算后的寄存器值（如 x+y 的结果）
+    E.code := E.code || E1.code || gen("br label " L_end);
+    _____(7)_____ || // 记录 Move 分支结束时的基本块标签，作为 Phi 的前驱
+
+    E.code := E.code || gen(L_def ":") || E_def.code;
+    L_def_end := get_current_label();
+    E.code := E.code || gen("br label " L_end) || gen(L_end ":");
+
+    E.addr := new_temp(); // 此时 E.addr 是一个寄存器，存放最终值
+    E.code := E.code || _____(8)_____; // 生成 phi 指令
+}
+```

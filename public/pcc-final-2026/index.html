@@ -20,7 +20,7 @@
 
 
 
-  <meta name="description" content="清华大学计算机系《编译原理》课程在 2025-2026 年秋季学期的期末试题。满分 100 分，考试时间 2026 年 1 月 11 日 14:30 - 16:30。个人整理，内容仅供参考。" />
+  <meta name="description" content="清华大学计算机系 2025-2026 年秋季学期《编译原理》课程的期末试题，由 aLexe1n 个人整理，内容仅供参考。" />
 <meta name="theme-color" content="#ffffff" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" integrity="sha384-n8MVd4RsNIU0tAv4ct0nTaAbDJwPJzDEaqSD1odI+WdtXRGWt2kTvGFasHpSy3SV" crossorigin="anonymous">
 <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" integrity="sha384-XjKyOOlGwcjNTAIQHIpgOno0Hl1YQqzUOEleOLALmuqehneUG+vnGctmUb0ZY0l8" crossorigin="anonymous"></script>
@@ -642,10 +642,10 @@
               <span>2026/02/21</span>
               <div
                 class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
-              <span>3074&nbsp;字数</span>
+              <span>5513&nbsp;字数</span>
               <div
                 class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
-              <span>7&nbsp;分钟</span>
+              <span>12&nbsp;分钟</span>
               
                 <div
                   class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
@@ -715,6 +715,7 @@
     <li><a href="#四符号表和运行时存储组织12分">四、符号表和运行时存储组织（12分）</a></li>
     <li><a href="#五中间代码生成14分">五、中间代码生成（14分）</a></li>
     <li><a href="#六自顶向下语法分析20分">六、自顶向下语法分析（20分）</a></li>
+    <li><a href="#七静态语义分析和中间代码生成15分">七、静态语义分析和中间代码生成（15分）</a></li>
   </ul>
 </nav>
               </div>
@@ -726,12 +727,20 @@
             id="hs-content"
             class="hs-content format mx-auto mt-2 max-w-none dark:format-invert md:format-base format-figure:flex format-figure:flex-col format-figure:items-center format-img:cursor-zoom-in dark:text-gray-300 lg:mt-11">
             
+          <link rel="stylesheet" href="/css/vendors/admonitions.css">
     <div class="admonition abstract">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
         <span>关于本文</span>
       </div>
       <div class="admonition-content">
-        <p>本篇文章系清华大学计算机系《编译原理》课程在 2025-2026 年秋季学期的期末试题。全卷满分 100 分，考试时间 2026 年 1 月 11 日 14:30 - 16:30。由 aLexe1n 个人整理，内容仅供参考。（更新未完成）</p>
+        <p>本篇文章系清华大学计算机系 2025-2026 年秋季学期《编译原理》课程的期末试题。</p>
+<ul>
+<li>考试时间 2026 年 1 月 11 日 14:30 - 16:30</li>
+<li>全卷满分 100 分，平均分约 80 分</li>
+<li>试卷图片由 aLexe1n 二次制作，格式与排版与原卷略有出入，但内容一致</li>
+<li>由于原卷黑白打印，本试题中的代码均不进行高亮处理，烦请谅解</li>
+</ul>
+<p>本套试题由 aLexe1n 个人整理，内容仅供参考。本人不计划提供本套试卷的答案，但欢迎一切围绕题目和答案的友善讨论。</p>
       </div>
     </div><h2 class="group head-tag" id="一词法分析和编译基础知识10分">一、词法分析和编译基础知识（10分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%b8%80%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%92%8c%e7%bc%96%e8%af%91%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%8610%e5%88%86"></a></h2><ol>
 <li>
@@ -765,17 +774,17 @@
 <p>（4分）考虑以下 TAC 代码,列出程序的所有基本块并给制对应的控制流图。</p>
 </li>
 </ol>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="nl">_Main</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">_T3</span> <span class="o">=</span> <span class="p">(</span><span class="n">_TI</span><span class="o">&lt;</span><span class="n">_T2</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">	<span class="k">if</span> <span class="p">(</span><span class="n">_T3</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">branch</span> <span class="n">_L1</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">_T3</span>
-</span></span><span class="line"><span class="cl">	<span class="n">branch</span> <span class="n">_L2</span>
-</span></span><span class="line"><span class="cl"><span class="nl">L1</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">_TO</span> <span class="o">=</span> <span class="n">_T2</span>
-</span></span><span class="line"><span class="cl"><span class="nl">L2</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">	<span class="n">_T1</span> <span class="o">=</span> <span class="n">_T0</span>
-</span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">_T1</span>
-</span></span></code></pre></div><h2 class="group head-tag" id="二自底向上语法分析17分">二、自底向上语法分析（17分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%ba%8c%e8%87%aa%e5%ba%95%e5%90%91%e4%b8%8a%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%9017%e5%88%86"></a></h2><p>设文法 $G[S]$，开始符号为 $S$，终结符为 $a,b,c,d$，输入结束符为 $\#$。产生式编号如下：</p>
+<pre tabindex="0"><code>_Main:
+	_T3 = (_TI&lt;_T2)
+	if (_T3==0) branch _L1
+	return _T3
+	branch _L2
+L1:
+	_TO = _T2
+L2:
+	_T1 = _T0
+	return _T1
+</code></pre><h2 class="group head-tag" id="二自底向上语法分析17分">二、自底向上语法分析（17分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%ba%8c%e8%87%aa%e5%ba%95%e5%90%91%e4%b8%8a%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%9017%e5%88%86"></a></h2><p>设文法 $G[S]$，开始符号为 $S$，终结符为 $a,b,c,d$，输入结束符为 $\#$。产生式编号如下：</p>
 $$
 \begin{aligned}
 (1) && S &\to L \\
@@ -838,50 +847,50 @@ B &\to b \; \{ \; S.i := B.i + 10 \; \} \; S \; \{ \; B.val := S.val \; \} \\
 B &\to ε \; \{ \; B.val := B.i \} \\
 \end{aligned}
 $$<p>针对该翻译模式构造的一个自上而下的递归下降（预测）翻译程序如下，其中使用了与课程中相同的 $\texttt{MatchToken}$ 函数与 $\texttt{lookahead}$ 变量，试补全程序代码。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">main</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">val</span> <span class="o">=</span> <span class="nf">ParseS</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">    <span class="nf">printf</span><span class="p">(</span><span class="s">&#34;%d</span><span class="se">\n</span><span class="s">&#34;</span><span class="p">,</span> <span class="n">val</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">ParseS</span><span class="p">(</span><span class="kt">int</span> <span class="n">S_i</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">val</span><span class="p">,</span> <span class="n">A_val</span><span class="p">,</span> <span class="n">B_val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">lookahead</span> <span class="o">==</span> <span class="sc">&#39;a&#39;</span> <span class="o">||</span> <span class="n">lookahead</span> <span class="o">==</span> <span class="sc">&#39;b&#39;</span> <span class="o">||</span> <span class="n">lookahead</span> <span class="o">==</span> <span class="sc">&#39;c&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">A_val</span> <span class="o">=</span> <span class="nf">ParseA</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">        <span class="n">B_val</span> <span class="o">=</span> <span class="nf">__</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="n">__</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">MatchToken</span><span class="p">(</span><span class="sc">&#39;c&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="n">val</span> <span class="o">=</span> <span class="nf">__</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="n">__</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">error</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">ParseA</span><span class="p">()</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">lookahead</span> <span class="o">==</span> <span class="sc">&#39;a&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">MatchToken</span><span class="p">(</span><span class="sc">&#39;a&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">__</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="n">__</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">__</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="n">__</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">val</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">error</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="kt">int</span> <span class="nf">ParseB</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="n">lookahead</span> <span class="o">==</span> <span class="sc">&#39;b&#39;</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">MatchToken</span><span class="p">(</span><span class="sc">&#39;b&#39;</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">__</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="n">__</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nf">__</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span><span class="n">__</span><span class="p">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="n">val</span> <span class="o">=</span> <span class="n">i</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">        <span class="nf">error</span><span class="p">();</span>
-</span></span><span class="line"><span class="cl">    <span class="p">}</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">val</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span></code></pre></div><h2 class="group head-tag" id="四符号表和运行时存储组织12分">四、符号表和运行时存储组织（12分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e5%9b%9b%e7%ac%a6%e5%8f%b7%e8%a1%a8%e5%92%8c%e8%bf%90%e8%a1%8c%e6%97%b6%e5%ad%98%e5%82%a8%e7%bb%84%e7%bb%8712%e5%88%86"></a></h2><p>下面产生是某简单（类 Pascal）语言的一段代码。</p>
+<pre tabindex="0"><code>int main() {
+    int val = ParseS(0);
+    printf(&#34;%d\n&#34;, val);
+}
+
+int ParseS(int S_i) {
+    int val, A_val, B_val;
+    if (lookahead == &#39;a&#39; || lookahead == &#39;b&#39; || lookahead == &#39;c&#39;) {
+        A_val = ParseA();
+        B_val = __(1)__
+        MatchToken(&#39;c&#39;);
+        val = __(2)__
+    } else {
+        error();
+    }
+    return val;
+}
+
+int ParseA() {
+    int val;
+    if (lookahead == &#39;a&#39;) {
+        MatchToken(&#39;a&#39;);
+        __(3)__
+    } else if (__(4)__) {
+        val = 1;
+    } else {
+        error();
+    }
+    return val;
+}
+
+int ParseB(int i) {
+    int val;
+    if (lookahead == &#39;b&#39;) {
+        MatchToken(&#39;b&#39;);
+        __(5)__
+    } else if (__(6)__) {
+        val = i;
+    } else {
+        error();
+    }
+    return val;
+}
+</code></pre><h2 class="group head-tag" id="四符号表和运行时存储组织12分">四、符号表和运行时存储组织（12分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e5%9b%9b%e7%ac%a6%e5%8f%b7%e8%a1%a8%e5%92%8c%e8%bf%90%e8%a1%8c%e6%97%b6%e5%ad%98%e5%82%a8%e7%bb%84%e7%bb%8712%e5%88%86"></a></h2><p>下面产生是某简单（类 Pascal）语言的一段代码。</p>
 <ul>
 <li>语言中不包含数据类型的声明，所有变量的类型默认为整型（占用一个存储单元）。</li>
 <li>语句块的括号为 $\texttt{begin}$ 和 $\texttt{end}$ 组合；赋值号为 $:=$。</li>
@@ -890,7 +899,7 @@ $$<p>针对该翻译模式构造的一个自上而下的递归下降（预测）
 <li>过程活动记录中的控制信息包括静态链 SL、动态链 DL，以及返回地址 RA。</li>
 <li>程序的执行遵循静态作用域规则。</li>
 </ul>
-<pre tabindex="0"><code class="language-pascal" data-lang="pascal">(1)  var p, q, r;
+<pre tabindex="0"><code>(1)  var p, q, r;
 (2)  procedure func1;
 (3)      var a, b;
 (4)      procedure func2;
@@ -1170,7 +1179,195 @@ $$<ol>
       </tr>
   </tbody>
 </table>
+<h2 class="group head-tag" id="七静态语义分析和中间代码生成15分">七、静态语义分析和中间代码生成（15分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%b8%83%e9%9d%99%e6%80%81%e8%af%ad%e4%b9%89%e5%88%86%e6%9e%90%e5%92%8c%e4%b8%ad%e9%97%b4%e4%bb%a3%e7%a0%81%e7%94%9f%e6%88%9015%e5%88%86"></a></h2><p>LLVM 是一个模块化编译器框架。前端会对高级编程语言源码（如 C、C++、Rust 等）进行词法和语法分析，生成 LLVM IR（LLVM 中间表示），并发送给 LLVM 后端，生成面向不同架构（如 x86、RISCV 等）的机器码。其中，前端生成 LLVM IR 的过程类似我们课堂上学过的中间代码生成。在本题中，我们使用简化的生成接口：</p>
+<ul>
+<li>以 $\texttt{\%}$ 开头的标识符（如 $\texttt{\%i1, \%t1}$）是临时寄存器。函数 $\texttt{new\_temp()}$ 会自动生成一个新的、不重复的临时寄存器名。</li>
+<li>所有数据访问需要指明类型，如 $\texttt{i1}$ 表示 1 bit 整型（即布尔）、$\texttt{i32}$ 表示 32bit 整型</li>
+<li>辅助函数 $\texttt{gen()}$, $\texttt{new\_temp()}$, $\texttt{new\_label()}$ 的功能与课程定义一致。</li>
+<li>$\texttt{S.code}$ 代表 $S$ 生成的中间代码字符串。</li>
+<li>本题可能用到的 LLVM IR 指令如下表所示，其中 $\texttt{\%a}$, $\texttt{\%b}$, $\texttt{\%r}$, $\texttt{\%ptr}$ 为临时变量名，$\texttt{T}$, $\texttt{ST}$, $\texttt{TT}$ 为类型名，$\texttt{T*}$ 为指向 $\texttt{T}$ 类型数据的指针，$\texttt{\%L}$, $\texttt{\%L1}$, $\texttt{\%L2}$ 为跳转标签，$\texttt{idx}$ 为立即数。这些可以修改，其余内容直接照抄即可。</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令格式</th>
+          <th style="text-align: left">作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>%r = add i32 %a, %b</code></td>
+          <td style="text-align: left">整数加法。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%r = alloca T</code></td>
+          <td style="text-align: left">在栈上分配类型 $\texttt{T}$ 的空间，返回指针 $\texttt{T*}$ 。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>store T %v, T* %ptr</code></td>
+          <td style="text-align: left">将值 $\texttt{\%v}$ 存入地址 $\texttt{\%ptr}$。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%r = load T, T* %ptr</code></td>
+          <td style="text-align: left">从地址 $\texttt{\%ptr}$ 读取值。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%r = icmp eq T %a, %b</code></td>
+          <td style="text-align: left">比较 $\texttt{\%a}$, $\texttt{\%b}$ 是否相等，返回布尔值（$\texttt{i1}$）。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>br i1 %cond, label %L1, label %L2</code></td>
+          <td style="text-align: left">条件跳转，当 $\texttt{\%cond}$ 为 1 时跳转到 $\texttt{\%L1}$，为 0 时跳转到 $\texttt{\%L2}$。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>br label %L</code></td>
+          <td style="text-align: left">无条件跳转。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>switch T %val, label %def [ T c1, label %L1 ... ]</code></td>
+          <td style="text-align: left">多路分支跳转。如果 $\texttt{\%val == c1}$ 跳转到 $\texttt{\%L1}$，否则跳转到 $\texttt{\%def}$。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%r = getelementptr T, T* %ptr, i32 0, i32 idx</code></td>
+          <td style="text-align: left">计算结构体第 $\texttt{idx}$ 个（从 0 开始）成员地址。假设结果类型为成员指针。</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>%r = bitcast ST %val to TT</code></td>
+          <td style="text-align: left">将 $\texttt{ST}$ 类型的 $\texttt{\%val}$ 强制转换为 $\texttt{TT}$ 类型的 $\texttt{\%r}$</td>
+      </tr>
+  </tbody>
+</table>
+<p>Rust 是一款注重内存安全与高性能的系统级编程语言，它同样使用 LLVM 作为编译后端。</p>
+<ol>
+<li>（8分） 我们考虑 Rust 中的 $\mathrm{match}$ 语法，它的基本功能是通过匹配返回一个值（注意，与 C++ 不同，它是一个有返回值的表达式）（这里的大括号是语法的一部分）。
+$$
+E \to \text{match} \; E_{cond} \; \{  \; P_1 \Rightarrow E_1, \_ \Rightarrow E_{default} \; \}
+$$
+它的语义是：计算 $E_{cond}$，如果 $E_{cond}$ 的值等于 $P_1$，那么执行 $E_1$，并将结果作为整个表达式的值；否则执行 $E_{default}$，并将结果作为整个表达式的值。$E$、$E_1$ 和 $E_{default}$ 的类型相同。</li>
+</ol>
+<p>补全下面的 LLVM IR 生成规则。其中 $\texttt{result\_ptr}$ 用来存放 $\mathrm{match}$ 表达式最终的返回值地址。类型检查等代码省略，默认已经计算完成。</p>
+<pre tabindex="0"><code>E -&gt; match E_cond { P1 =&gt; E1, _ =&gt; E_def } {
+    E.addr := new_temp();
+    cond_val := new_temp();
+    val1 := new_temp();
+    val_def := new_temp();
+    result_ptr := E.addr;
+    gen(E.addr &#34; = alloca &#34; E.type);  // 分配栈空间用于存储最终结果
 
+    L_check := new_label();  // 检查条件
+    L_case1 := new_label();  // 匹配 P1 的分支
+    L_def   := new_label();  // 默认分支
+    L_end   := new_label();  // 结束合并点
+
+    _____(1)_____; // 为条件值 cond_val 生成临时寄存器
+    
+    E.code := E_cond.code ||
+              gen(cond_val &#34; = load &#34; E_cond.type &#34;, &#34; E_cond.addr) ||
+              _____(2)_____; // 提示：此处 P1.value 已经计算完成
+
+    E.code := E.code || gen(L_case1 &#34;:&#34;) ||
+              E1.code ||
+              gen(val1 &#34; = load &#34; E1.type &#34;, &#34; E1.addr) ||
+              _____(3)_____ ||
+              gen(&#34;br label &#34; L_end);
+
+    E.code := E.code || gen(L_def &#34;:&#34;) ||
+              E_def.code ||
+              gen(val_def &#34; = load &#34; E_def.type &#34;, &#34; E_def.addr) ||
+              gen(&#34;store &#34; E_def.type &#34; &#34; val_def &#34;, &#34; E_def.type &#34; * &#34; result_ptr) ||
+              _____(4)_____;
+
+    E.code := E.code || gen(L_end &#34;:&#34;);
+}
+</code></pre><ol start="2">
+<li>（4分） 在 Rust 中，枚举类型可以包含每种类别独有的信息，假设有一个名为 $\texttt{Message}$ 的枚举类型，当其为 $\texttt{Empty}$ 是没有附加信息，但当其为 $\texttt{Post}$ 时可以附带两个 $\texttt{i32}$ 类型数据。</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-rust" data-lang="rust"><span class="line"><span class="cl"><span class="k">enum</span> <span class="nc">Message</span><span class="w"> </span><span class="p">{</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Empty</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="n">Post</span><span class="p">(</span><span class="kt">i32</span><span class="p">,</span><span class="w"> </span><span class="kt">i32</span><span class="p">),</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="p">}</span><span class="w">
+</span></span></span></code></pre></div><p>其内存布局等同于如下结构体（Tagged Union）：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-c" data-lang="c"><span class="line"><span class="cl"><span class="k">struct</span> <span class="n">Message</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="kt">int</span> <span class="n">tag</span><span class="p">;</span>    <span class="c1">// 0 代表 Empty, 1 代表 Post
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">union</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">        <span class="kt">int</span> <span class="n">dummy</span><span class="p">;</span>      <span class="c1">// Empty 变体没有数据
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>        <span class="k">struct</span> <span class="p">{</span> <span class="kt">int</span> <span class="n">x</span><span class="p">;</span> <span class="kt">int</span> <span class="n">y</span><span class="p">;</span> <span class="p">}</span> <span class="n">post_data</span><span class="p">;</span> <span class="c1">// Post 变体包含 x, y
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="p">}</span> <span class="n">payload</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div>$$
+E \to \text{match } E_{cond} \; \{ \; \text{Post } \{ id_1, id_2 \} \Rightarrow E_1, \_ \Rightarrow E_{default} \; \}
+$$<p>假设：</p>
+<ul>
+<li>$\texttt{E\_cond.addr}$ 指向 struct $\texttt{Message}$ 类型的数据。</li>
+<li>struct $\texttt{Message}$ 在 LLVM 中对应类型 $\texttt{\%Message}$。</li>
+<li>$\texttt{tag}$ 字段是结构体的第 0 个成员，$\texttt{payload}$ 是第 1 个成员。</li>
+<li>$\texttt{post\_data}$ 结构体（包含 x, y）在 LLVM 中对应类型 $\texttt{\%PostData}$。</li>
+</ul>
+<p>请你补全用于处理 Message::Post 分支的代码生成逻辑。</p>
+<pre tabindex="0"><code>E -&gt; match E_cond { Post { id1, id2 } =&gt; E1, _ =&gt; E_def } {
+    // ... 前略：结果分配、E_cond 代码生成 ...
+
+    tag_ptr := new_temp();
+    tag_val := new_temp();
+    E.code := E.code ||
+              _____(5)_____ || // 获取 tag 字段的地址（tag 是结构体第 0 个成员）
+              gen(tag_val &#34; = load i32, i32* &#34; tag_ptr) ||
+              gen(&#34;switch i32 &#34; tag_val &#34;, label &#34; L_def &#34; [ i32 1, label &#34; L_post &#34; ]&#34;);
+
+    payload_base := new_temp();
+    post_ptr := new_temp();
+    
+    E.code := E.code ||
+              gen(L_post &#34;:&#34;) ||
+              gen(payload_base &#34; = getelementptr %Message, %Message* &#34; E_cond.addr &#34;, i32 0, i32 1&#34;) ||
+              gen(post_ptr &#34; = bitcast ... &#34; payload_base &#34; to %PostData*&#34;);
+
+    x_ptr := new_temp();
+    y_ptr := new_temp();
+    E.code := E.code ||
+              _____(6)_____ || // 计算 x 的地址
+              gen(y_ptr &#34; = getelementptr %PostData, %PostData* &#34; post_ptr &#34;, i32 0, i32 1&#34;);
+
+    E.code := E.code || E1.code;
+
+    // ... 后略：存储结果并跳转 ...
+}
+</code></pre><ol start="3">
+<li>（3分） 现代编译器通常会直接生成 SSA（静态单赋值）形式的代码，以便提升数据流优化效果。这导致两个不同的基本块无法同时对同一变量进行赋值。LLVM IR 中提供了一条特殊指令（$\texttt{phi}$）用于合并来自不同基本块的值。</li>
+</ol>
+<p>在这种模式下，$\mathrm{match}$ 表达式的最终值需要通过 Phi 节点 ($\texttt{phi}$) 在汇合块 $\texttt{L\_end}$ 中合并。</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">指令格式</th>
+          <th style="text-align: left">作用</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>%r = phi T [ %v1, %L1 ], [ %v2, %L2 ]</code></td>
+          <td style="text-align: left">如果当前控制流是从基本块 $\texttt{\%L1}$ 跳转过来的，则 $\texttt{\%r}$ 取值 $\texttt{\%v1}$；如果是从 $\texttt{\%L2}$ 跳转过来的，则取值 $\texttt{\%v2}$。$\texttt{\%L1}$ 和 $\texttt{\%L2}$ 都是当前基本块的直接前驱。</td>
+      </tr>
+  </tbody>
+</table>
+<p>假设编译器引入了一个辅助函数 $\texttt{get\_current\_label()}$，用于获取当前正在生成指令的基本块标签。请重构代码生成逻辑，移除 $\texttt{result\_ptr}$，并在 $\texttt{L\_end}$ 处使用 $\texttt{phi}$ 指令合并结果。（注：$E_1$ 和 $E_{default}$ 的代码生成过程可能会产生新的基本块，因此它们结束时的位置是不确定的。）</p>
+<pre tabindex="0"><code>E -&gt; match E_cond { Move { id1, id2 } =&gt; E1, _ =&gt; E_def } {
+    // ... (前序代码：E_cond 计算，Switch 跳转等，与第二问相同) ...
+    E.code := E.code || gen(L_move &#34;:&#34;);
+    // ... (解构绑定 id1, id2 的代码，与第二问相同) ...
+
+    // 生成 E1 的代码，假设 E1.result 存放了 E1 计算后的寄存器值（如 x+y 的结果）
+    E.code := E.code || E1.code || gen(&#34;br label &#34; L_end);
+    _____(7)_____ || // 记录 Move 分支结束时的基本块标签，作为 Phi 的前驱
+
+    E.code := E.code || gen(L_def &#34;:&#34;) || E_def.code;
+    L_def_end := get_current_label();
+    E.code := E.code || gen(&#34;br label &#34; L_end) || gen(L_end &#34;:&#34;);
+
+    E.addr := new_temp(); // 此时 E.addr 是一个寄存器，存放最终值
+    E.code := E.code || _____(8)_____; // 生成 phi 指令
+}
+</code></pre>
           </div>
 
           <div class="hs-content-meta pb-5 pt-3">
@@ -1296,6 +1493,7 @@ $$<ol>
     <li><a href="#四符号表和运行时存储组织12分">四、符号表和运行时存储组织（12分）</a></li>
     <li><a href="#五中间代码生成14分">五、中间代码生成（14分）</a></li>
     <li><a href="#六自顶向下语法分析20分">六、自顶向下语法分析（20分）</a></li>
+    <li><a href="#七静态语义分析和中间代码生成15分">七、静态语义分析和中间代码生成（15分）</a></li>
   </ul>
 </nav>
                   </div>
