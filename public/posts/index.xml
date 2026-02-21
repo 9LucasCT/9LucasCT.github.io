@@ -6,14 +6,14 @@
     <description>Recent content in Posts on Studentalkz</description>
     <generator>Hugo</generator>
     <language>zh-hans</language>
-    <lastBuildDate>Sat, 21 Feb 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 21 Feb 2026 14:11:24 +0800</lastBuildDate>
     <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>编译原理 | 2026 年 1 月期末试题</title>
       <link>http://localhost:1313/pcc-final-2026/</link>
       <pubDate>Sat, 21 Feb 2026 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/pcc-final-2026/</guid>
-      <description>&lt;h2 class=&#34;group head-tag&#34; id=&#34;一词法分析和编译基础知识10分&#34;&gt;一、词法分析和编译基础知识（10分）&lt;a data-title-of-head class=&#34;group-hover:after:content-[&#39;__#&#39;] no-underline hover:text-[--hs-text-color-hover]&#34; href=&#34;#%e4%b8%80%e8%af%8d%e6%b3%95%e5%88%86%e6%9e%90%e5%92%8c%e7%bc%96%e8%af%91%e5%9f%ba%e7%a1%80%e7%9f%a5%e8%af%8610%e5%88%86&#34;&gt;&lt;/a&gt;&lt;/h2&gt;&lt;ol&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;（2分）下列哪项工作属于编译器后端的典型任务（）&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;A. 寄存器分配&lt;/li&gt;&#xA;&lt;li&gt;B. 语法分析&lt;/li&gt;&#xA;&lt;li&gt;C. 语义分析&lt;/li&gt;&#xA;&lt;li&gt;D. 常量折叠&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;（2分）词法分析过程中常用的单词描述工具是（）&lt;/p&gt;</description>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/vendors/admonitions.css&#34;&gt;&#xA;    &lt;div class=&#34;admonition abstract&#34;&gt;&#xA;      &lt;div class=&#34;admonition-header&#34;&gt;&lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; viewBox=&#34;0 0 384 512&#34;&gt;&lt;path d=&#34;M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z&#34;/&gt;&lt;/svg&gt;&#xA;        &lt;span&gt;关于本文&lt;/span&gt;&#xA;      &lt;/div&gt;&#xA;      &lt;div class=&#34;admonition-content&#34;&gt;&#xA;        &lt;p&gt;本篇文章系清华大学计算机系《编译原理》课程在 2025-2026 年秋季学期的期末试题。全卷满分 100 分，考试时间 2026 年 1 月 11 日 14:30 - 16:30。由 aLexe1n 个人整理，内容仅供参考。（更新未完成）&lt;/p&gt;</description>
     </item>
     <item>
       <title>日本旅行 1：事前准备</title>

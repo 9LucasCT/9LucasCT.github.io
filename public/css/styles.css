@@ -1136,6 +1136,9 @@ video {
 .inline-flex {
   display: inline-flex;
 }
+.table {
+  display: table;
+}
 .flow-root {
   display: flow-root;
 }

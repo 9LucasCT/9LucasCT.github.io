@@ -642,10 +642,10 @@
               <span>2026/02/21</span>
               <div
                 class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
-              <span>2567&nbsp;字数</span>
+              <span>3074&nbsp;字数</span>
               <div
                 class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
-              <span>6&nbsp;分钟</span>
+              <span>7&nbsp;分钟</span>
               
                 <div
                   class="h-1 w-1 rounded-full bg-red-700 dark:bg-red-700/50"></div>
@@ -710,10 +710,11 @@
                 <nav id="TableOfContents">
   <ul>
     <li><a href="#一词法分析和编译基础知识10分">一、词法分析和编译基础知识（10分）</a></li>
-    <li><a href="#二自顶向下分析17分">二、自顶向下分析（17分）</a></li>
+    <li><a href="#二自底向上语法分析17分">二、自底向上语法分析（17分）</a></li>
     <li><a href="#三翻译模式12分">三、翻译模式（12分）</a></li>
     <li><a href="#四符号表和运行时存储组织12分">四、符号表和运行时存储组织（12分）</a></li>
     <li><a href="#五中间代码生成14分">五、中间代码生成（14分）</a></li>
+    <li><a href="#六自顶向下语法分析20分">六、自顶向下语法分析（20分）</a></li>
   </ul>
 </nav>
               </div>
@@ -725,7 +726,6 @@
             id="hs-content"
             class="hs-content format mx-auto mt-2 max-w-none dark:format-invert md:format-base format-figure:flex format-figure:flex-col format-figure:items-center format-img:cursor-zoom-in dark:text-gray-300 lg:mt-11">
             
-          <link rel="stylesheet" href="/css/vendors/admonitions.css">
     <div class="admonition abstract">
       <div class="admonition-header"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-288-128 0c-17.7 0-32-14.3-32-32L224 0 64 0zM256 0l0 128 128 0L256 0zM112 256l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16zm0 64l160 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-160 0c-8.8 0-16-7.2-16-16s7.2-16 16-16z"/></svg>
         <span>关于本文</span>
@@ -753,11 +753,13 @@
 </ul>
 </li>
 <li>
-<p>（2分）下面哪一项错误最可能在词法分析阶段被发现（）
-A. 缺少分号
-B. 使用未声明受量
-C. 非法字符
-D. 运算符优先级错误</p>
+<p>（2分）下面哪一项错误最可能在词法分析阶段被发现（）</p>
+<ul>
+<li>A. 缺少分号</li>
+<li>B. 使用未声明受量</li>
+<li>C. 非法字符</li>
+<li>D. 运算符优先级错误</li>
+</ul>
 </li>
 <li>
 <p>（4分）考虑以下 TAC 代码,列出程序的所有基本块并给制对应的控制流图。</p>
@@ -773,7 +775,7 @@ D. 运算符优先级错误</p>
 </span></span><span class="line"><span class="cl"><span class="nl">L2</span><span class="p">:</span>
 </span></span><span class="line"><span class="cl">	<span class="n">_T1</span> <span class="o">=</span> <span class="n">_T0</span>
 </span></span><span class="line"><span class="cl">	<span class="k">return</span> <span class="n">_T1</span>
-</span></span></code></pre></div><h2 class="group head-tag" id="二自顶向下分析17分">二、自顶向下分析（17分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%ba%8c%e8%87%aa%e9%a1%b6%e5%90%91%e4%b8%8b%e5%88%86%e6%9e%9017%e5%88%86"></a></h2><p>设文法 $G[S]$，开始符号为 $S$，终结符为 $a,b,c,d$，输入结束符为 $\#$。产生式编号如下：</p>
+</span></span></code></pre></div><h2 class="group head-tag" id="二自底向上语法分析17分">二、自底向上语法分析（17分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%ba%8c%e8%87%aa%e5%ba%95%e5%90%91%e4%b8%8a%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%9017%e5%88%86"></a></h2><p>设文法 $G[S]$，开始符号为 $S$，终结符为 $a,b,c,d$，输入结束符为 $\#$。产生式编号如下：</p>
 $$
 \begin{aligned}
 (1) && S &\to L \\
@@ -825,7 +827,8 @@ $$<ol>
 <ol start="5">
 <li>（2分）对于输入串 $adbc$，SLR(1) 分析程序会在哪个状态报错？报错时状态栈内容是什么（从栈底到栈顶依次写出）？</li>
 </ol>
-<h2 class="group head-tag" id="三翻译模式12分">三、翻译模式（12分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%b8%89%e7%bf%bb%e8%af%91%e6%a8%a1%e5%bc%8f12%e5%88%86"></a></h2>$$
+<h2 class="group head-tag" id="三翻译模式12分">三、翻译模式（12分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e4%b8%89%e7%bf%bb%e8%af%91%e6%a8%a1%e5%bc%8f12%e5%88%86"></a></h2><p>如下是以 $G[S]$ 为基础改造的一个 L 翻译模式。</p>
+$$
 \begin{aligned}
 S' &\to \{ \; S.i := 0 \; \} \; S \; \{ \; \texttt{print}(S.val) \; \} \\
 S &\to \{ \; B.i := 0 \; \} \; A B c \; \{ \; S.val := A.val + B.val \; \} \\
@@ -974,6 +977,199 @@ $$<p>针对该翻译模式构造的一个自上而下的递归下降（预测）
 <li>$\texttt{goto linecode}$</li>
 </ul>
 <p>其中 $\texttt{tmp}$ 表示临时变量，$\texttt{imm}$ 表示立即数，$\texttt{op}$ 表示二元运算符，$\texttt{arr}$ 表示数组标识符，$\texttt{linecode}$ 表示行号。</p>
+<h2 class="group head-tag" id="六自顶向下语法分析20分">六、自顶向下语法分析（20分）<a data-title-of-head class="group-hover:after:content-['__#'] no-underline hover:text-[--hs-text-color-hover]" href="#%e5%85%ad%e8%87%aa%e9%a1%b6%e5%90%91%e4%b8%8b%e8%af%ad%e6%b3%95%e5%88%86%e6%9e%9020%e5%88%86"></a></h2><p>给定文法 $G[S]$。其中，$S, A, B$ 为非终结符，$a, b, c$ 为终结符，开始符号为 $S$。</p>
+$$
+\begin{aligned}
+S &\to ABc \\
+A &\to aA \mid \varepsilon \\
+B &\to b S \mid \varepsilon
+\end{aligned}
+$$<ol>
+<li>（7分）补充文法 $G[S]$ 对应的各个产生式右部符号串的 $\mathrm{First}$ 集合、各产生式左部非终结符的 $\mathrm{Follow}$ 集合以及各产生式的预测集合 $\mathrm{PS}$，即完成下表（列出每个集合的元素即可）。表中的 $\mathrm{rhs}(r)$ 表示产生式 $r$ 右部的文法符号串，$\mathrm{lhs}(r)$ 表示产生式 $r$ 左部的非终结符。</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">$G[S]$ 中的规则 $r$</th>
+          <th style="text-align: left">$\mathrm{First(rhs}(r))$</th>
+          <th style="text-align: left">$\mathrm{Follow(lhs}(r))$</th>
+          <th style="text-align: left">$\mathrm{PS}(r)$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$S \rightarrow A B c$</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$A \rightarrow a A$</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$A \rightarrow \varepsilon$</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">此处不填</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$B \rightarrow b S$</td>
+          <td style="text-align: left">b</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$B \rightarrow \varepsilon$</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left">此处不填</td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table>
+<ol start="2">
+<li>（5分）请完成文法 $G[S]$ 的预测分析表，其中部分内容已填好。</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left"></th>
+          <th style="text-align: left">$a$</th>
+          <th style="text-align: left">$b$</th>
+          <th style="text-align: left">$c$</th>
+          <th style="text-align: left">$\#$</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">$S$</td>
+          <td style="text-align: left">$S \rightarrow A B c$</td>
+          <td style="text-align: left">$S \rightarrow A B c$</td>
+          <td style="text-align: left">$S \rightarrow A B c$</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$A$</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">$B$</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+          <td style="text-align: left"></td>
+      </tr>
+  </tbody>
+</table>
+<ol start="3">
+<li>
+<p>（2分）判断该文法是否为 LL(1) 文法。若是，请说明为什么；若否，请说明在何处出现了冲突。</p>
+</li>
+<li>
+<p>（6分）针对输入串 $abacc$，基于上述预测分析表的一个分析过程如下，补全表中缺失部分。</p>
+</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">步骤</th>
+          <th style="text-align: left">下推栈</th>
+          <th style="text-align: right">余留符号串</th>
+          <th style="text-align: left">下一步动作</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">1</td>
+          <td style="text-align: left">$\#S$</td>
+          <td style="text-align: right">$abacc\#$</td>
+          <td style="text-align: left">应用 $S \rightarrow ABc$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">2</td>
+          <td style="text-align: left">$\#cBA$</td>
+          <td style="text-align: right">$abacc\#$</td>
+          <td style="text-align: left">应用 $A \rightarrow aA$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">3</td>
+          <td style="text-align: left">$\#cBAa$</td>
+          <td style="text-align: right">$abacc\#$</td>
+          <td style="text-align: left">匹配符号</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">4</td>
+          <td style="text-align: left">$\#cBA$</td>
+          <td style="text-align: right">$bacc\#$</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">5</td>
+          <td style="text-align: left">$\#cB$</td>
+          <td style="text-align: right">$bacc\#$</td>
+          <td style="text-align: left">应用 $B \rightarrow bS$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">6</td>
+          <td style="text-align: left">$\#cSb$</td>
+          <td style="text-align: right">$bacc\#$</td>
+          <td style="text-align: left">匹配符号</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">7</td>
+          <td style="text-align: left">$\#cS$</td>
+          <td style="text-align: right">$acc\#$</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">8</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: right">$acc\#$</td>
+          <td style="text-align: left"></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">9</td>
+          <td style="text-align: left"></td>
+          <td style="text-align: right">$acc\#$</td>
+          <td style="text-align: left">匹配符号</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">10</td>
+          <td style="text-align: left">$\#ccBA$</td>
+          <td style="text-align: right"></td>
+          <td style="text-align: left">应用 $A \rightarrow \varepsilon$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">11</td>
+          <td style="text-align: left">$\#ccB$</td>
+          <td style="text-align: right">$cc\#$</td>
+          <td style="text-align: left">应用 $B \rightarrow \varepsilon$</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">12</td>
+          <td style="text-align: left">$\#cc$</td>
+          <td style="text-align: right">$cc\#$</td>
+          <td style="text-align: left">匹配符号</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">13</td>
+          <td style="text-align: left">$\#c$</td>
+          <td style="text-align: right">$c\#$</td>
+          <td style="text-align: left">匹配符号</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">14</td>
+          <td style="text-align: left">$\#$</td>
+          <td style="text-align: right">$\#$</td>
+          <td style="text-align: left">结束</td>
+      </tr>
+  </tbody>
+</table>
 
           </div>
 
@@ -1095,10 +1291,11 @@ $$<p>针对该翻译模式构造的一个自上而下的递归下降（预测）
                     <nav id="TableOfContents">
   <ul>
     <li><a href="#一词法分析和编译基础知识10分">一、词法分析和编译基础知识（10分）</a></li>
-    <li><a href="#二自顶向下分析17分">二、自顶向下分析（17分）</a></li>
+    <li><a href="#二自底向上语法分析17分">二、自底向上语法分析（17分）</a></li>
     <li><a href="#三翻译模式12分">三、翻译模式（12分）</a></li>
     <li><a href="#四符号表和运行时存储组织12分">四、符号表和运行时存储组织（12分）</a></li>
     <li><a href="#五中间代码生成14分">五、中间代码生成（14分）</a></li>
+    <li><a href="#六自顶向下语法分析20分">六、自顶向下语法分析（20分）</a></li>
   </ul>
 </nav>
                   </div>
